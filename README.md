@@ -3,6 +3,7 @@
 - [django-environ를 이용한 환경변수 관리](#django-environ를-이용한-환경변수-관리)
 - [django project & app 생성](#django-project--app-생성)
 - [migration 명령어](#migration-기능)
+- [DB data 다루기:dumpdata & loaddata](#dumpdata--loaddata)
 
 ## poetry를 이용한 가상환경 생성
 [기록](https://hapsunny.tistory.com/94)
@@ -58,4 +59,12 @@ environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 
 # 4. 불러온 값 설정
 SECRET_KEY = env("SECRET_KEY")
-``` 
+```
+
+## dumpdata & loaddata
+- 프로젝트를 진행하다 보면 데이터를 임시로 저장해야할 경우나 팀원들 간의 공유를 해야할 상황이 발생할 수 있다.
+- 그럴 경우에 아래와 같이 명령어를 사용하면 현재 DB에 있는 데이터들을 json 형태로 꺼내고 다시 DB에 저장할 수 있다.
+```bash
+python -Xutf8 manage.py dumpdata [앱이름] > [파일이름.json] # 데이터 json형태로 저장하는 명령
+python manage.py loaddata [파일이름.json] # DB에 data load 하는 명령
+```
