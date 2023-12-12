@@ -68,3 +68,9 @@ SECRET_KEY = env("SECRET_KEY")
 python -Xutf8 manage.py dumpdata [앱이름] > [파일이름.json] # 데이터 json형태로 저장하는 명령
 python manage.py loaddata [파일이름.json] # DB에 data load 하는 명령
 ```
+
+## DRF Test
+```bash
+python manage.py test
+```
+
